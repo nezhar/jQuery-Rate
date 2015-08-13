@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Rate</title>
+
+	<link rel="stylesheet" type="text/css" href="rate.css">
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="jquery.rate.js"></script>
+
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+
+			$('.rate-small').rateCircle({
+				type: 'small'
+			});
+			
+			$('.rate-medium').rateCircle({
+				type: 'medium'
+			});
+
+			$('.rate-big').rateCircle({
+				type: 'big'
+			});
+
+			$('.rate-custom1').rateCircle({
+				type: 'custom',
+				size: 250,
+	            lineWidth: 15,
+	            fontSize: 30,
+			});
+
+			$('.rate-custom2').rateCircle({
+				type: 'custom',
+				size: 350,
+	            lineWidth: 15,
+	            fontSize: 30,
+			});
+
+            $('.rate-box').rateBox();
+            $('.rate-bar-chart').rateBarChart();
+            $('.rate-value').rateValue();
+
+		});
+	</script>
+</head>
+<body>
+
+	<div style="width:100%">
+		<h1>Rate Box Small</h1>
+	
+		<div style="width:100px;float:left;">
+			<div class="rate-small" data-rate="1.0"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-small" data-rate="1.1"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-small" data-rate="2.2"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-small" data-rate="3.8"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-small" data-rate="4.4"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-small" data-rate="5.3"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-small" data-rate="6.0"></div>
+		</div>
+	</div>
+
+	<div style="clear:both;"></div><hr>
+
+	<div style="width:100%;">
+		<div style="width:100px;float:left;">
+			<div class="rate-medium" data-rate="1.0"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-medium" data-rate="1.1"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-medium" data-rate="2.2"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-medium" data-rate="3.8"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-medium" data-rate="4.4"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-medium" data-rate="5.3"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-medium" data-rate="6.0"></div>
+		</div>
+	</div>
+
+	<div style="clear:both;"></div><hr>
+
+	<div style="width:100%;">
+		<div style="width:100px;float:left;">
+			<div class="rate-big" data-rate="1.0"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-big" data-rate="1.1"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-big" data-rate="2.2"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-big" data-rate="3.8"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-big" data-rate="4.4"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-big" data-rate="5.3"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-big" data-rate="6.0"></div>
+		</div>
+	</div>
+
+	<div style="clear:both;"></div><hr>
+
+	<div style="width:100%;">
+		<div style="width:300px;float:left;">
+			<div class="rate-custom1" data-rate="1.0"></div>
+		</div>
+		<div style="width:400px;float:left;">
+			<div class="rate-custom2" data-rate="1.1"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-custom3" data-rate="2.2"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-custom4" data-rate="3.8"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-custom5" data-rate="4.4"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-custom6" data-rate="5.3"></div>
+		</div>
+		<div style="width:100px;float:left;">
+			<div class="rate-custom7" data-rate="6.0"></div>
+		</div>
+	</div>
+
+	<div style="clear:both;"></div><hr>
+
+	<div style="width:100px;">
+		<div class="rate-box" data-rate="5.3"></div>
+	</div>
+
+	<hr>
+
+	<div style="width:50px;">
+		<div class="rate-value" data-rate="5.3"></div>
+	</div>
+
+	<hr>
+
+	<div style="width:100px;">
+		<div class="rate-bar-chart" data-rate="5.3"></div>
+	</div>
+
+</body>
+</html>

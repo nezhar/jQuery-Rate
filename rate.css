@@ -1,0 +1,162 @@
+.rate-tmp {
+	display: none;
+}
+
+.rate-circle-back, .rate-circle-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto !important;
+}
+
+.rate-circle-score {
+  font-style: normal;
+  font-weight: bold;
+  font-family: Arial;
+}
+
+
+.rate-color-back {
+	color: #e6e6e6;
+}
+
+.rate-color5, .rate-color6 {
+	color: #43cd34;
+}
+
+.rate-color4 {
+	color: #f3b700;
+}
+
+.rate-color3 {
+	color: #eedf14;
+}
+
+.rate-color2 {
+	color: #f28d4f;
+}
+
+.rate-color1 {
+	color: #ea5b0c;
+}
+
+
+.rate-box-average {
+    position: absolute;
+    width:100%;
+    top: 20px;
+    left: 0;   
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+}
+
+.rate-box-gesamt {
+    position: absolute;
+    width: 100%;
+    top: 46px;
+    left: 0;   
+    text-align: center;
+    color: #ffffff;
+}
+
+.rate-box-circle {
+    font-size: 90px;
+    position: absolute;
+    top: -42px;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+}
+
+
+.rate-gradient-null {
+	width: 100%;
+	height: 100px;
+	background-image: -webkit-linear-gradient(top, #e6e6e6 0%, #e6e6e6 100%);
+	background-image: -o-linear-gradient(top, #e6e6e6 0%, #e6e6e6 100%);
+	background-image: linear-gradient(to bottom, #e6e6e6 0%, #e6e6e6 100%);
+	background-repeat: repeat-x;
+	position: relative;
+}
+
+.rate-gradient1 {
+	width: 100%;
+	height: 100px;
+	background-image: -webkit-linear-gradient(top, #5ee450 0%, #37c428 100%);
+	background-image: -o-linear-gradient(top, #5ee450 0%, #37c428 100%);
+	background-image: linear-gradient(to bottom, #5ee450 0%, #37c428 100%);
+	background-repeat: repeat-x;
+	position: relative;
+}
+
+.rate-gradient2 {
+	width: 100%;
+	height: 100px;
+	background-image: -webkit-linear-gradient(top, #f3b700 0%, #f3b700 100%);
+	background-image: -o-linear-gradient(top, #f3b700 0%, #f3b700 100%);
+	background-image: linear-gradient(to bottom, #f3b700 0%, #f3b700 100%);
+	background-repeat: repeat-x;
+	position: relative;
+}
+
+.rate-gradient3 {
+	width: 100%;
+	height: 100px;
+	background-image: -webkit-linear-gradient(top, #eedf14 0%, #eedf14 100%);
+	background-image: -o-linear-gradient(top, #eedf14 0%, #eedf14 100%);
+	background-image: linear-gradient(to bottom, #eedf14 0%, #eedf14 100%);
+	background-repeat: repeat-x;
+	position: relative;
+}
+
+.rate-gradient4 {
+	width: 100%;
+	height: 100px;
+	background-image: -webkit-linear-gradient(top, #f28d4f 0%, #f28d4f 100%);
+	background-image: -o-linear-gradient(top, #f28d4f 0%, #f28d4f 100%);
+	background-image: linear-gradient(to bottom, #f28d4f 0%, #f28d4f 100%);
+	background-repeat: repeat-x;
+	position: relative;
+}
+
+.rate-gradient5, .rate-gradient6 {
+	width: 100%;
+	height: 100px;
+	background-image: -webkit-linear-gradient(top, #ea5b0c 0%, #ea5b0c 100%);
+	background-image: -o-linear-gradient(top, #ea5b0c 0%, #ea5b0c 100%);
+	background-image: linear-gradient(to bottom, #ea5b0c 0%, #ea5b0c 100%);
+	background-repeat: repeat-x;
+	position: relative;
+}
+
+.rate-chart .rate-chart-bar-back {
+	width: 100%;
+	height: 3px;
+	background: #e6e6e6;
+}
+
+.rate-chart .rate-chart-bar-front {
+	height: 3px;
+	background: #da810b;
+}
+
+
+.rate-value {
+	font-weight: 600;
+	padding: 0;
+	color: #ffffff;
+	font-size: 18px;
+	display: table;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+.rate-value-score {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	height: 100%;
+}
