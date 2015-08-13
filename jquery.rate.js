@@ -1,5 +1,13 @@
+/*
+Author: Nezbeda Harald
+Description: This is a jQuery plugin.
+*/
 (function( $ ) {
   "use strict";
+
+    /*
+      Rate Circle
+    */
     $.fn.rateCircle = function(options) {
 
         // This is the easiest way to have default options.
@@ -8,6 +16,7 @@
             size: 100,
             lineWidth: 10,
             fontSize: 30,
+            referenceValue: 100
         }, options);
 
         var canvasSize = settings.size,
@@ -16,32 +25,9 @@
             circleLineWidth = settings.lineWidth,
             textFontSize = settings.fontSize;
 
-        if (settings.type=='small') {
-          canvasSize = 68,
-          circlePosition = 34,
-          circleSize = 30,
-          circleLineWidth = 7,
-          textFontSize = 20;
-        }
-          
-        if (settings.type=='medium') {
-          canvasSize = 74;
-          circlePosition = 37;
-          circleSize = 33;
-          circleLineWidth = 8;
-          textFontSize = 24;
-        }
-
-        if (settings.type=='big') {
-          canvasSize = 100;
-          circlePosition = 50;
-          circleSize = 40;
-          circleLineWidth = 10;
-          textFontSize = 30;
-        }
-
         $(this).html("");
-        $(this).append("<canvas class='rate-circle-back'></canvas><canvas class='rate-circle-front'></canvas>");
+        $(this).append("<canvas class='rate-circle-back' width='"+canvasSize+"' height='"+canvasSize+"'></canvas>");
+        $(this).append("<canvas class='rate-circle-front' width='"+canvasSize+"' height='"+canvasSize+"'></canvas>");
 
         $(this).css('position','relative');
         $(this).css('display','block');
@@ -55,11 +41,7 @@
           var rate = $(this).data('rate');
           var percent;
 
-          if (rate) {
-            percent = 100*(rate-1)/5;
-          } else {
-            percent = 0;
-          }
+          percent = 100*rate/settings.referenceValue;
 
           var backCanvas = $(this).find(".rate-circle-back");
           var back = backCanvas.get(0).getContext('2d');
@@ -76,7 +58,7 @@
           
           front.lineWidth = circleLineWidth;
 
-          frontCanvas.addClass("rate-color"+parseInt(rate, 0));//getColorClass(rate)
+          frontCanvas.addClass("rate-color"+parseInt(rate/10, 0));//getColorClass(rate)
           front.strokeStyle = frontCanvas.css('color');
 
           var endAngle = (Math.PI * percent * 2 / 100);
@@ -92,6 +74,9 @@
         });
     };
 
+    /*
+      Rate Box
+    */
     $.fn.rateBox = function() {
       $(this).each(function() {
         var rate = $(this).data('rate');
@@ -116,6 +101,9 @@
       });
     };
 
+    /*
+      Rate Bar Chart
+    */
     $.fn.rateBarChart = function() {
       $(this).each(function() {
         var i,current,percent;
@@ -138,6 +126,9 @@
       });
     };
 
+    /*
+      Rate Value
+    */
     $.fn.rateValue = function() {
       $(this).each(function() {
         var rate = $(this).data('rate');

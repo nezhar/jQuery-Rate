@@ -1,6 +1,12 @@
-.rate-tmp {
-	display: none;
-}
+/* --------------------------------------------------------
+Style Sheet for jQuery Rate
+
+version: 0.1
+last modified: 13.08.2015
+author: Nezbeda Harald
+email: hn@nezhar.com
+website: http://nezhar.com
+----------------------------------------------------------*/
 
 .rate-circle-back, .rate-circle-front {
   position: absolute;
@@ -20,25 +26,28 @@
 	color: #e6e6e6;
 }
 
-.rate-color5, .rate-color6 {
-	color: #43cd34;
+.rate-color0, .rate-color1, .rate-color2 {
+	color: #ea5b0c;
 }
 
-.rate-color4 {
-	color: #f3b700;
-}
-
-.rate-color3 {
-	color: #eedf14;
-}
-
-.rate-color2 {
+.rate-color3, .rate-color4 {
 	color: #f28d4f;
 }
 
-.rate-color1 {
-	color: #ea5b0c;
+.rate-color5, .rate-color6 {
+	color: #eedf14;
 }
+
+.rate-color7, .rate-color8 {
+	color: #f3b700;
+}
+
+.rate-color9, .rate-color10 {
+	color: #43cd34;
+}
+
+
+
 
 
 .rate-box-average {
