@@ -1,18 +1,16 @@
 /*
 Author: Nezbeda Harald
-Description: This is a jQuery plugin.
+Description: A jQuery plugin for ratings
 */
-(function( $ ) {
-  "use strict";
+(function($) {
+    "use strict";
 
     /*
       Rate Circle
     */
     $.fn.rateCircle = function(options) {
-
-        // This is the easiest way to have default options.
+        // These are the default options
         var settings = $.extend({
-            // These are the defaults.
             size: 100,
             lineWidth: 10,
             fontSize: 30,
@@ -20,17 +18,17 @@ Description: This is a jQuery plugin.
         }, options);
 
         var canvasSize = settings.size,
-            circlePosition = canvasSize/2,
-            circleSize = circlePosition-settings.lineWidth/2,
+            circlePosition = canvasSize / 2,
+            circleSize = circlePosition - settings.lineWidth / 2,
             circleLineWidth = settings.lineWidth,
             textFontSize = settings.fontSize;
 
         $(this).html("");
-        $(this).append("<canvas class='rate-circle-back' width='"+canvasSize+"' height='"+canvasSize+"'></canvas>");
-        $(this).append("<canvas class='rate-circle-front' width='"+canvasSize+"' height='"+canvasSize+"'></canvas>");
+        $(this).append("<canvas class='rate-circle-back' width='" + canvasSize + "' height='" + canvasSize + "'></canvas>");
+        $(this).append("<canvas class='rate-circle-front' width='" + canvasSize + "' height='" + canvasSize + "'></canvas>");
 
-        $(this).css('position','relative');
-        $(this).css('display','block');
+        $(this).css('position', 'relative');
+        $(this).css('display', 'block');
         $(this).css('width', canvasSize);
         $(this).css('height', canvasSize);
         $(this).css('margin', '0 auto');
@@ -38,116 +36,65 @@ Description: This is a jQuery plugin.
 
         $(this).each(function() {
 
-          var rate = $(this).data('rate');
-          var percent;
+            var value = $(this).data('value');
+            var percent;
 
-          percent = 100*rate/settings.referenceValue;
+            percent = 100 * value / settings.referenceValue;
 
-          var backCanvas = $(this).find(".rate-circle-back");
-          var back = backCanvas.get(0).getContext('2d');
-          back.lineWidth = circleLineWidth;
+            var backCanvas = $(this).find(".rate-circle-back");
+            var back = backCanvas.get(0).getContext('2d');
+            back.lineWidth = circleLineWidth;
 
-          backCanvas.addClass("rate-color-back");
-          back.strokeStyle = backCanvas.css('color');
+            backCanvas.addClass("rate-color-back");
+            back.strokeStyle = backCanvas.css('color');
 
-          back.arc(circlePosition, circlePosition, circleSize, -(Math.PI/180*90), 2*Math.PI - (Math.PI/180*90), false);
-          back.stroke();
+            back.arc(circlePosition, circlePosition, circleSize, -(Math.PI / 180 * 90), 2 * Math.PI - (Math.PI / 180 * 90), false);
+            back.stroke();
 
-          var frontCanvas = $(this).find(".rate-circle-front");
-          var front = frontCanvas.get(0).getContext('2d');
-          
-          front.lineWidth = circleLineWidth;
+            var frontCanvas = $(this).find(".rate-circle-front");
+            var front = frontCanvas.get(0).getContext('2d');
 
-          frontCanvas.addClass("rate-color"+parseInt(rate/10, 0));//getColorClass(rate)
-          front.strokeStyle = frontCanvas.css('color');
+            front.lineWidth = circleLineWidth;
 
-          var endAngle = (Math.PI * percent * 2 / 100);
-          front.arc(circlePosition, circlePosition, circleSize, -(Math.PI/180*90), endAngle - (Math.PI/180*90), false);
-          front.stroke();
+            frontCanvas.addClass("rate-color" + parseInt(percent / 10, 0)); //getColorClass(rate)
+            front.strokeStyle = frontCanvas.css('color');
 
-          $(this).append("<span class='rate-circle-score'>"+rate+"</span>");
+            var endAngle = (Math.PI * percent * 2 / 100);
+            front.arc(circlePosition, circlePosition, circleSize, -(Math.PI / 180 * 90), endAngle - (Math.PI / 180 * 90), false);
+            front.stroke();
 
-          var score = $(this).find(".rate-circle-score");
-          score.css("line-height",canvasSize+"px");
-          score.css("font-size",textFontSize+"px");
-          score.css("color",front.strokeStyle);
+            $(this).append("<span class='rate-circle-value'>" + value + "</span>");
+
+            var rateValue = $(this).find(".rate-circle-value");
+            rateValue.css("line-height", canvasSize + "px");
+            rateValue.css("font-size", textFontSize + "px");
+            rateValue.css("color", front.strokeStyle);
         });
     };
 
     /*
       Rate Box
     */
-    $.fn.rateBox = function() {
-      $(this).each(function() {
-        var rate = $(this).data('rate');
-        var grade, gradientClass, text;
+    $.fn.rateBox = function(options) {
+        // These are the default options
+        var settings = $.extend({
+            width: 100,
+            height: 10,
+            fontSize: 30,
+            referenceValue: 100
+        }, options);
 
-        if (rate) {
-          grade = (Math.round( (7-rate) * 10 ) / 10).toFixed(1);
-          gradientClass = "rate-gradient"+parseInt(grade, 0);
-          text = "Gesamt";
-        } else {
-          grade = "";
-          gradientClass = "rate-gradient-null";
-          text = "";
-        }
+        $(this).each(function() {
+            var value = $(this).data('value');
+            var grade, gradientClass, text, percent;
 
-        $(this).html("<div></div>");
-        var box = $(this).find('div');
-        box.addClass(gradientClass);
-        box.append("<span class='rate-box-average'>"+grade+"</span>");
-        box.append("<span class='rate-box-gesamt'>"+text+"</span>");
-        box.append("<span class='rate-box-circle'><i class='fa fa-circle-thin'></i></span>");
-      });
+            percent = 100 * value / settings.referenceValue;
+            gradientClass = "rate-gradient" + parseInt(percent / 10, 0);
+
+            $(this).html("<div></div>");
+            var box = $(this).find('div');
+            box.addClass(gradientClass);
+            box.append("<span class='rate-box-value'>" + value + "</span>");
+        });
     };
-
-    /*
-      Rate Bar Chart
-    */
-    $.fn.rateBarChart = function() {
-      $(this).each(function() {
-        var i,current,percent;
-        var rate = $(this).data('rate');
-
-        $(this).html("<table class='rate-chart'><col width='10%'><col width='70%'><col width='10%'></table>");
-        var table = $(this).find('table');
-
-        var sum = 0;
-        for (i=0; i < rate.length; i++) {
-          sum += rate[i];
-        }
-
-        for (i = rate.length-1; i >= 0; i--) {
-          current = 6-i;
-          if (sum) percent = parseInt(rate[i]/sum*100, 0);
-          else percent= 0;
-          table.append("<tr><td class='text-center'>"+current+":</td><td><div class='rate-chart-bar-back'><div class='rate-chart-bar-front' style='width:"+percent+"%;'></div></td><td class='text-left'>&nbsp;("+rate[i]+")</td></tr>");
-        }
-      });
-    };
-
-    /*
-      Rate Value
-    */
-    $.fn.rateValue = function() {
-      $(this).each(function() {
-        var rate = $(this).data('rate');
-        var grade, gradientClass;
-
-        if (rate) {
-          grade = (Math.round( (7-rate) * 10 ) / 10).toFixed(1);
-          gradientClass = "rate-gradient"+parseInt(grade, 0);
-        } else {
-          grade = "";
-          gradientClass = "rate-gradient-null";
-        }
-
-        $(this).html("<div></div>");
-        var box = $(this).find('div');
-        box.addClass("rate-value");
-        box.addClass(gradientClass);
-        box.append("<span class='rate-value-score'>"+grade+"</span>");
-      });
-    };
-
-}( jQuery ));
+}(jQuery));

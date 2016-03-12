@@ -1,93 +1,110 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>jQuery Rate</title>
+    <title>jQuery Rate</title>
+    <!-- External CSS and JS Libraries - Optional -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="rate.css">
+    <!-- jQury Rate CSS and JS -->
+    <link rel="stylesheet" type="text/css" href="rate.css">
+    <script type="text/javascript" src="jquery.rate.js"></script>
 
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="jquery.rate.js"></script>
-
-	<script type="text/javascript">
-		jQuery(document).ready(function ($) {
-
-			$('.rate-default').rateCircle();
-
-			$('.rate-custom').rateCircle({
-				size: 150,
-	            lineWidth: 20,
-	            fontSize: 25,
-			});
-
+    <!-- Demo CSS and JS -->
+    <link rel="stylesheet" type="text/css" href="demo.css">
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $('.rate-circle').rateCircle();
             $('.rate-box').rateBox();
-            $('.rate-bar-chart').rateBarChart();
-            $('.rate-value').rateValue();
 
-
-            $('input[type="range"').on("change mousemove", function() {
-            	$(".rate-default").html("");
-            	$(".rate-default").data('rate', $("#rate").val());
-            	$('.rate-default').rateCircle({
-					size: $("#size").val(),
-		            lineWidth: $("#lineWidth").val(),
-		            fontSize: $("#fontSize").val(),
-				});
-
-
+            $('input[id*="rate-circle"]').on("change mousemove", function() {
+                $(".rate-circle").data('value', $("#rate-circle-value").val());
+                $('.rate-circle').rateCircle({
+                    size: $("#rate-circle-size").val(),
+                    lineWidth: $("#rate-circle-line-width").val(),
+                    fontSize: $("#rate-circle-font-size").val(),
+                });
             });
 
-		});
-	</script>
+            $('input[id*="rate-box"]').on("change mousemove", function() {
+                $(".rate-box").data('value', $("#rate-box-value").val());
+                $('.rate-box').rateBox();
+            });
+        });
+    </script>
 </head>
+
 <body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>jQuery Rate</h1>
+            <p class="lead">A simple jQuery plugin for creating graphical ratings.</p>
+            <p><a class="btn btn-lg btn-success" href="#" role="button">Download</a></p>
+        </div>
 
-	<div style="width:100%">
-		<h1>Rate Box Small</h1>
-		
-		<div style="float:left;width:25%;">
-			<label for="rate">Rate:</label>
-			<br><input type="range" id="rate" min="0" max="100" step="1" value="0" style="width:100%;">
-			<br><label for="size">Size:</label>
-			<br><input type="range" id="size" min="0" max="300" step="10" value="100" style="width:100%;">
-			<br><label for="lineWidth">Line width:</label>
-			<br><input type="range" id="lineWidth" min="0" max="150" step="1" value="10" style="width:100%;">
-			<br><label for="fontSize">Font size:</label>
-			<br><input type="range" id="fontSize" min="0" max="100" step="1" value="30" style="width:100%;">
-		</div>
-		<div style="float:left;width:75%;">
-			<div class="rate-default" data-rate="0"></div>
-		</div>
-	</div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Rate Circle</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row marketing">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="rate-circle-value">Value:</label>
+                    <input type="range" id="rate-circle-value" min="0" max="100" step="1" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="rate-circle-size">Size:</label>
+                    <input type="range" id="rate-circle-size" min="0" max="200" step="10" value="100">
+                </div>
+                <div class="form-group">
+                    <label for="rate-circle-line-width">Line width:</label>
+                    <input type="range" id="rate-circle-line-width" min="0" max="150" step="1" value="10">
+                </div>
+                <div class="form-group">
+                    <label for="rate-circle-font-size">Font size:</label>
+                    <input type="range" id="rate-circle-font-size" min="0" max="100" step="1" value="30">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="rate-circle" data-value="0"></div>
+            </div>
+        </div>
 
-	<div style="clear:both;"></div><hr>
-
-	<div style="width:100px;">
-		<div class="rate-box" data-rate="5.3"></div>
-	</div>
-	<div style="width:100px;">
-		<div class="rate-box" data-rate="4.3"></div>
-	</div>
-	<div style="width:100px;">
-		<div class="rate-box" data-rate="3.3"></div>
-	</div>
-	<div style="width:100px;">
-		<div class="rate-box" data-rate="2.3"></div>
-	</div>
-	<div style="width:100px;">
-		<div class="rate-box" data-rate="1.3"></div>
-	</div>
-
-	<hr>
-
-	<div style="width:50px;">
-		<div class="rate-value" data-rate="5.3"></div>
-	</div>
-
-	<hr>
-
-	<div style="width:300px;">
-		<div class="rate-bar-chart" data-rate="[1,2,3,4,5,2]"></div>
-	</div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Rate Box</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row marketing">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="rate">Rate:</label>
+                    <input type="range" id="rate-box-value" min="0" max="100" step="1" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="size">Width:</label>
+                    <input type="range" id="rate-box-size" min="0" max="200" step="10" value="100">
+                </div>
+                <div class="form-group">
+                    <label for="lineWidth">Height:</label>
+                    <input type="range" id="rate-box-line-width" min="0" max="150" step="1" value="10">
+                </div>
+                <div class="form-group">
+                    <label for="fontSize">Font size:</label>
+                    <input type="range" id="rate-box-font-size" min="0" max="100" step="1" value="30">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="rate-box" data-value="5.3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- /container -->
 
 </body>
+
 </html>
