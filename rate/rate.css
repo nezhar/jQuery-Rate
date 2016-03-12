@@ -50,17 +50,12 @@ website: http://nezhar.com
 .rate-box-value {
     position: absolute;
     width:100%;
-    top: 20px;
-    left: 0;
-    font-size: 20px;
     font-weight: bold;
     text-align: center;
     color: #ffffff;
 }
 
 .rate-gradient0, .rate-gradient1, .rate-gradient2 {
-	width: 100%;
-	height: 100px;
 	background-image: -webkit-linear-gradient(top, #ea5b0c 0%, #ea5b0c 100%);
 	background-image: -o-linear-gradient(top, #ea5b0c 0%, #ea5b0c 100%);
 	background-image: linear-gradient(to bottom, #ea5b0c 0%, #ea5b0c 100%);
@@ -69,8 +64,6 @@ website: http://nezhar.com
 }
 
 .rate-gradient3, .rate-gradient4 {
-	width: 100%;
-	height: 100px;
 	background-image: -webkit-linear-gradient(top, #f28d4f 0%, #f28d4f 100%);
 	background-image: -o-linear-gradient(top, #f28d4f 0%, #f28d4f 100%);
 	background-image: linear-gradient(to bottom, #f28d4f 0%, #f28d4f 100%);
@@ -79,8 +72,6 @@ website: http://nezhar.com
 }
 
 .rate-gradient5, .rate-gradient6 {
-	width: 100%;
-	height: 100px;
 	background-image: -webkit-linear-gradient(top, #eedf14 0%, #eedf14 100%);
 	background-image: -o-linear-gradient(top, #eedf14 0%, #eedf14 100%);
 	background-image: linear-gradient(to bottom, #eedf14 0%, #eedf14 100%);
@@ -89,8 +80,6 @@ website: http://nezhar.com
 }
 
 .rate-gradient7, .rate-gradient8 {
-	width: 100%;
-	height: 100px;
 	background-image: -webkit-linear-gradient(top, #f3b700 0%, #f3b700 100%);
 	background-image: -o-linear-gradient(top, #f3b700 0%, #f3b700 100%);
 	background-image: linear-gradient(to bottom, #f3b700 0%, #f3b700 100%);
@@ -99,8 +88,6 @@ website: http://nezhar.com
 }
 
 .rate-gradient9, .rate-gradient10 {
-	width: 100%;
-	height: 100px;
 	background-image: -webkit-linear-gradient(top, #5ee450 0%, #37c428 100%);
 	background-image: -o-linear-gradient(top, #5ee450 0%, #37c428 100%);
 	background-image: linear-gradient(to bottom, #5ee450 0%, #37c428 100%);
