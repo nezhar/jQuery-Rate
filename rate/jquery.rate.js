@@ -14,7 +14,9 @@ Description: A jQuery plugin for ratings
             size: 100,
             lineWidth: 10,
             fontSize: 30,
-            referenceValue: 100
+            referenceValue: 100,
+            valuePrefix: '',
+            valueSufix: '',
         }, options);
 
         var canvasSize = settings.size,
@@ -22,7 +24,9 @@ Description: A jQuery plugin for ratings
             circleSize = circlePosition - settings.lineWidth / 2,
             circleLineWidth = settings.lineWidth,
             textFontSize = settings.fontSize,
-            referenceValue = settings.referenceValue;
+            referenceValue = settings.referenceValue,
+            valuePrefix = settings.valuePrefix,
+            valueSufix = settings.valueSufix;
 
         $(this).html("");
         $(this).append("<canvas class='rate-circle-back' width='" + canvasSize + "' height='" + canvasSize + "'></canvas>");
@@ -37,13 +41,12 @@ Description: A jQuery plugin for ratings
 
         $(this).each(function() {
 
-            var value = $(this).data("value");
-            var percent;
+            var percent,
+                value = $(this).data("value"),
+                backCanvas = $(this).find(".rate-circle-back"),
+                back = backCanvas.get(0).getContext("2d");
 
             percent = 100 * value / referenceValue;
-
-            var backCanvas = $(this).find(".rate-circle-back");
-            var back = backCanvas.get(0).getContext("2d");
             back.lineWidth = circleLineWidth;
 
             backCanvas.addClass("rate-color-back");
@@ -64,7 +67,7 @@ Description: A jQuery plugin for ratings
             front.arc(circlePosition, circlePosition, circleSize, -(Math.PI / 180 * 90), endAngle - (Math.PI / 180 * 90), false);
             front.stroke();
 
-            $(this).append("<span class='rate-circle-value'>" + value + "</span>");
+            $(this).append("<span class='rate-circle-value'>" + valuePrefix + value + valueSufix + "</span>");
 
             var rateValue = $(this).find(".rate-circle-value");
             rateValue.css("line-height", canvasSize + "px");
@@ -82,30 +85,38 @@ Description: A jQuery plugin for ratings
             width: 100,
             height: 100,
             fontSize: 30,
-            referenceValue: 100
+            referenceValue: 100,
+            valuePrefix: '',
+            valueSufix: '',
         }, options);
 
         var boxWidth = settings.width,
             boxHeight = settings.height,
             textFontSize = settings.fontSize,
-            referenceValue = settings.referenceValue;
+            referenceValue = settings.referenceValue,
+            valuePrefix = settings.valuePrefix,
+            valueSufix = settings.valueSufix;
 
         $(this).each(function() {
-            var value = $(this).data("value");
-            var grade, gradientClass, text, percent;
+            var box,
+                grade,
+                gradientClass,
+                text,
+                percent,
+                value = $(this).data("value");
 
             percent = 100 * value / referenceValue;
             gradientClass = "rate-gradient" + parseInt(percent / 10, 0);
 
             $(this).html("<div></div>");
-            var box = $(this).find("div");
+            box = $(this).find("div");
             box.addClass(gradientClass);
 
             box.css("width", boxWidth + "px");
             box.css("height", boxHeight + "px");
             box.css("margin", "0 auto");
 
-            box.append("<span class='rate-box-value'>" + value + "</span>");
+            box.append("<span class='rate-box-value'>" + valuePrefix + value + valueSufix + "</span>");
 
             var rateValue = $(this).find(".rate-box-value");
             rateValue.css("font-size", textFontSize + "px");
