@@ -1,0 +1,24 @@
+{
+  "name": "jquery-rate",
+  "version": "0.1.0",
+  "description": "A jQuery plugin that allows you to draw simple ratings.",
+  "main": "rate/jquery.rate.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nezhar/jQuery-Rate.git"
+  },
+  "keywords": [
+    "jquery",
+    "ratings",
+    "rate"
+  ],
+  "author": "Harald Nezbeda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nezhar/jQuery-Rate/issues"
+  },
+  "homepage": "https://github.com/nezhar/jQuery-Rate#readme",
+  "dependencies": [
+    "jquery"
+  ]
+}
