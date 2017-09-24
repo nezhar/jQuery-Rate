@@ -29,15 +29,19 @@ Description: A jQuery plugin for ratings
             valueSufix = settings.valueSufix;
 
         $(this).html("");
-        $(this).append("<canvas class='rate-circle-back' width='" + canvasSize + "' height='" + canvasSize + "'></canvas>");
-        $(this).append("<canvas class='rate-circle-front' width='" + canvasSize + "' height='" + canvasSize + "'></canvas>");
+        $(this).append([
+            "<canvas class='rate-circle-back' width='" + canvasSize + "' height='" + canvasSize + "'></canvas>",
+            "<canvas class='rate-circle-front' width='" + canvasSize + "' height='" + canvasSize + "'></canvas>"
+        ]);
 
-        $(this).css("position", "relative");
-        $(this).css("display", "block");
-        $(this).css("width", canvasSize);
-        $(this).css("height", canvasSize);
-        $(this).css("margin", "0 auto");
-        $(this).css("text-align", "center");
+        $(this).css({
+            "position": "relative",
+            "display": "block",
+            "width": canvasSize,
+            "height": canvasSize,
+            "margin": "0 auto",
+            "text-align": "center"
+        });
 
         $(this).each(function() {
 
@@ -70,9 +74,11 @@ Description: A jQuery plugin for ratings
             $(this).append("<span class='rate-circle-value'>" + valuePrefix + value + valueSufix + "</span>");
 
             var rateValue = $(this).find(".rate-circle-value");
-            rateValue.css("line-height", canvasSize + "px");
-            rateValue.css("font-size", textFontSize + "px");
-            rateValue.css("color", front.strokeStyle);
+            rateValue.css({
+                "line-height": canvasSize + "px",
+                "font-size": textFontSize + "px",
+                "color": front.strokeStyle
+            });
         });
     };
 
@@ -112,16 +118,19 @@ Description: A jQuery plugin for ratings
             box = $(this).find("div");
             box.addClass(gradientClass);
 
-            box.css("width", boxWidth + "px");
-            box.css("height", boxHeight + "px");
-            box.css("margin", "0 auto");
-
+            box.css({
+                "width": boxWidth + "px",
+                "height": boxHeight + "px",
+                "margin": "0 auto"
+            });
             box.append("<span class='rate-box-value'>" + valuePrefix + value + valueSufix + "</span>");
 
             var rateValue = $(this).find(".rate-box-value");
-            rateValue.css("font-size", textFontSize + "px");
-            rateValue.css("height", boxHeight + "px");
-            rateValue.css("line-height", boxHeight + "px");
+            rateValue.css({
+                "font-size": textFontSize + "px",
+                "height": boxHeight + "px",
+                "line-height": boxHeight + "px"
+            });
         });
     };
 }(jQuery));
